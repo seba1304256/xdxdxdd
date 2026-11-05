@@ -199,35 +199,3 @@ INSERT INTO participaciones (kills, deaths, assists, puntaje_combate, gano, juga
 INSERT INTO participaciones (kills, deaths, assists, puntaje_combate, gano, jugador_id, partida_id, agente_id) VALUES (18, 18, 14, 220, 'N', 7, 8, 3);
 
 COMMIT;
--- buscar en jugadores donde (mayuscula) nickname donde like es comparador donde busca por letras
-SELECT * FROM jugadores;
-SELECT * FROM jugadores WHERE upper (NICKNAME) LIKE '%O%';
-
-
-CREATE TABLE pulentos(
-    nombre VARCHAR2(230),
-    apellido VARCHAR2(230)
-)
-
-insert  into pulentos (nombre, apellido) Values ('Maxito',null);
-insert  into pulentos (nombre, apellido) Values ('benjamin','carmona');
-
-
-SELECT * from pulentos where apellido is null;
--- ordena los nombres por orden alfabetico
-select* from pulentos ORDER by nombre;
---ordena los nombres de la misma forma pero al reves
-select* from pulentos ORDER by nombre desc;
-
-SELECT * from jugadores order by edad;
---ordena primero los nombres real y depues ordena edad
-select * from jugadores order by NOMBRE_REAL,edad;
---
-select count(*) as cantidad_de_jugadores from jugadores;
-
-select nombre, tag, presupuesto_anual from equipos order by PRESUPUESTO_ANUAL desc;
-select nickname, edad, nombre_real from JUGADORES order by EDAD ASC;
-SELECT PAIS_NATAL,NICKNAME,SUELDO_MENSUAL from JUGADORES ORDER by PAIS_NATAL ASC, SUELDO_MENSUAL DESC;
-SELECT * FROM PARTIDAS ORDER BY FECHA_PARTIDA DESC;
-SELECT * FROM PARTICIPACIONES WHERE GANO = 'S'  ORDER BY puntaje_combate DESC;
-SELECT * FROM PATROCINIOS ORDER BY tipo_contrato ASC, monto_anual DESC;
